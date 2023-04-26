@@ -24,11 +24,13 @@ class PayoutCard extends StatelessWidget {
                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                    children: [
                      Container(
-                         child: Image.network("https://assets.ajio.com/medias/sys_master/root/20221109/SI6r/636b8e9af997ddfdbd663ee4/-473Wx593H-461119105-blue-MODEL.jpg"),
                        height: MediaQuery.of(context).size.height/12,
+                       //width: MediaQuery.of(context).size.width/8,
                        decoration: BoxDecoration(
-                         borderRadius: BorderRadius.circular(8)
+                         //color: Colors.red,
+                           borderRadius: BorderRadius.circular(8)
                        ),
+                         child: Image.network("https://assets.ajio.com/medias/sys_master/root/20221109/SI6r/636b8e9af997ddfdbd663ee4/-473Wx593H-461119105-blue-MODEL.jpg",fit: BoxFit.contain,),
                      ),
                      const SizedBox(
                        width: 15,

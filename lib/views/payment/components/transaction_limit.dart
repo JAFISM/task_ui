@@ -7,12 +7,12 @@ class TransactionLimit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return transactionLimit(context);
   }
 }
 Container transactionLimit(BuildContext context) {
   return Container(
-    height: MediaQuery.of(context).size.height / 5,
+    height: MediaQuery.of(context).size.height / 4.6,
     width: double.infinity,
     margin: const EdgeInsets.symmetric(),
     decoration: BoxDecoration(

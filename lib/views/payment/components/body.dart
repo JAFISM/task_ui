@@ -23,6 +23,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
     Tab(text: 'refunds'),
   ];
 
+
   @override
   void initState() {
     super.initState();
@@ -57,7 +58,9 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
   Expanded tabBarViews() {
     return Expanded(
         child: TabBarView(
+
       controller: _tabController,
+      physics: NeverScrollableScrollPhysics(),
       children: [
         Container(
           color: Colors.red,
@@ -92,6 +95,11 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
             style: headingStyle,
           ),
           TabBar(
+            //isScrollable: false,
+            indicatorSize: TabBarIndicatorSize.label,
+              onTap: (index) {
+                setState(() {});
+              },
               indicator: ShapeDecoration(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25),
@@ -103,7 +111,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                   child: Container(
                     height: MediaQuery.of(context).size.height / 25,
                     decoration: BoxDecoration(
-                      color: kBoarderColor,
+                      color: _tabController.index==0?kPrimaryColor:kBoarderColor,
                       borderRadius: BorderRadius.circular(25),
                     ),
                     child: Align(
@@ -117,7 +125,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                     height: MediaQuery.of(context).size.height / 25,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: kPrimaryColor,
+                      color:_tabController.index==1?kPrimaryColor:kBoarderColor,
                     ),
                     child: Align(
                       alignment: Alignment.center,
@@ -130,7 +138,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                     height: MediaQuery.of(context).size.height / 25,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: kBoarderColor,
+                      color: _tabController.index==2?kPrimaryColor:kBoarderColor,
                     ),
                     child: Align(
                       alignment: Alignment.center,
