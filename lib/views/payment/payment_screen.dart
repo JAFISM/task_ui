@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/appbar_payment.dart';
+import '../../widgets/appbar_payment.dart';
 import 'components/body.dart';
 
 class PaymentScreen extends StatelessWidget {

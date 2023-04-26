@@ -4,7 +4,9 @@ import 'package:task_ui/views/payment/components/paymentMethod.dart';
 import 'package:task_ui/views/payment/components/payment_overview.dart';
 import 'package:task_ui/views/payment/components/transaction_limit.dart';
 
-import '../../widgets/payout_card.dart';
+import '../../../widgets/payout_card.dart';
+
+
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
