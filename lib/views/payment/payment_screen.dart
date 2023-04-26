@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/appbar_payment.dart';
 import 'components/body.dart';
 
 class PaymentScreen extends StatelessWidget {
@@ -8,22 +9,9 @@ class PaymentScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: buildAppBar(),
+        appBar: appBarPayment(),
         body: const Body()
       ),
-    );
-  }
-
-  AppBar buildAppBar() {
-    return AppBar(
-      centerTitle: true,
-      title: const Text("Payments",
-          style: TextStyle(fontFamily: "Poppins"),
-      ),
-      leading: IconButton(icon:const Icon(Icons.arrow_back),onPressed: (){},),
-      actions: [
-           IconButton(onPressed: (){}, icon: const Icon(Icons.info_outline))
-      ],
     );
   }
 }

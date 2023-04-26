@@ -12,7 +12,7 @@ class PayoutCard extends StatelessWidget {
           height: MediaQuery.of(context).size.height /8,
           width: double.infinity,
           decoration: const BoxDecoration(
-           // color: Colors.red,
+           color: kBackgroundColor,
               border: Border(bottom: BorderSide(width: 1.5, color: kBoarderColor))),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +40,7 @@ class PayoutCard extends StatelessWidget {
                          Text("jul 12 02:06 PM",style: subheadingStyle,)
                        ],
                      ),
-                     Spacer(),
+                     const Spacer(),
                      Column(
                        crossAxisAlignment: CrossAxisAlignment.end,
                        children: [
