@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants.dart';
+import '../../../utils/constants.dart';
 import '../../../widgets/amount_card.dart';
 
 class PaymentOverview extends StatelessWidget {
@@ -23,18 +23,21 @@ Container paymentOverview(BuildContext context) {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Row(
-          children: const [
-            Text(
+          children: [
+            const Text(
               "Payment Overview",
               style: headingStyle,
             ),
             Spacer(),
             Text("Life time"),
-            // Icon(
-            //   Icons.arrow_drop_down_rounded,
-            //   size: 30,
-            //   color: kSubTextColor,
-            // )
+            GestureDetector(
+              onTap: (){},
+              child: Icon(
+                Icons.arrow_drop_down_rounded,
+                size: 30,
+                color: kSubTextColor,
+              ),
+            )
           ],
         ),
         Row(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants.dart';
+import '../../../utils/constants.dart';
 
 class PaymentMethod extends StatelessWidget {
   const PaymentMethod({Key? key}) : super(key: key);
@@ -23,17 +23,20 @@ Container paymentMethod(BuildContext context) {
         Container(
           margin: const EdgeInsets.symmetric(),
           child: Row(
-            children: const [
+            children:  [
               Text(
                 "Default Method",
                 style: headingStyle,
               ),
               Spacer(),
               Text("Online Payments"),
-              Icon(
-                Icons.arrow_forward_ios,
-                size: 16,
-                color: kSubTextColor,
+              GestureDetector(
+                onTap: (){},
+                child: Icon(
+                  Icons.arrow_forward_ios,
+                  size: 16,
+                  color: kSubTextColor,
+                ),
               )
             ],
           ),
@@ -41,17 +44,20 @@ Container paymentMethod(BuildContext context) {
         Container(
           margin: const EdgeInsets.symmetric(),
           child: Row(
-            children: const [
+            children:  [
               Text(
                 "Payment Profile",
                 style: headingStyle,
               ),
               Spacer(),
               Text("Bank Account"),
-              Icon(
-                Icons.arrow_forward_ios,
-                size: 16,
-                color: kSubTextColor,
+              GestureDetector(
+                onTap: (){},
+                child: Icon(
+                  Icons.arrow_forward_ios,
+                  size: 16,
+                  color: kSubTextColor,
+                ),
               )
             ],
           ),

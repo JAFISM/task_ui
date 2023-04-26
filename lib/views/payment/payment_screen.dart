@@ -7,10 +7,12 @@ class PaymentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("page build");
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: appBarPayment(),
-        body: const Body()
+        body:  Body()
       ),
     );
   }

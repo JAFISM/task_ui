@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:task_ui/theme.dart';
+import 'package:provider/provider.dart';
+import 'package:task_ui/utils/theme.dart';
+import 'package:task_ui/views/payment/controller/payment_provider.dart';
 import 'package:task_ui/views/payment/payment_screen.dart';
 
 void main() {
@@ -12,10 +14,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: theme(),
-      debugShowCheckedModeBanner: false,
-      home: const PaymentScreen(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<PaymentProvider>(create: (_)=>PaymentProvider()),
+      ],
+      child: MaterialApp(
+        theme: theme(),
+        debugShowCheckedModeBanner: false,
+        home: const PaymentScreen(),
+      ),
     );
   }
 }

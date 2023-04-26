@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_ui/constants.dart';
+import 'package:task_ui/utils/constants.dart';
 import 'package:task_ui/views/payment/components/paymentMethod.dart';
 import 'package:task_ui/views/payment/components/payment_overview.dart';
 import 'package:task_ui/views/payment/components/transaction_limit.dart';
@@ -38,8 +38,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return  Container(
         //color: Colors.red,
         margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
         child: Column(
@@ -51,14 +50,12 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
             tabBarViews()
           ],
         ),
-      ),
-    );
+      );
   }
 
   Expanded tabBarViews() {
     return Expanded(
         child: TabBarView(
-
       controller: _tabController,
       physics: NeverScrollableScrollPhysics(),
       children: [
@@ -133,7 +130,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                     ),
                     child: Align(
                       alignment: Alignment.center,
-                      child: Text('Payouts'),
+                      child: Text('Payouts(15)'),
                     ),
                   ),
                 ),

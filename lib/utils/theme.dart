@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:task_ui/constants.dart';
+import 'package:task_ui/utils/constants.dart';
 
 ThemeData theme() {
   return ThemeData(

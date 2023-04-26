@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
+import '../utils/constants.dart';
 
 class PayoutCard extends StatelessWidget {
   //late payout=PayoutModel();
@@ -34,17 +34,7 @@ class PayoutCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  height: MediaQuery.of(context).size.height / 12,
-                  //width: MediaQuery.of(context).size.width/8,
-                  decoration: BoxDecoration(
-                      //color: Colors.red,
-                      borderRadius: BorderRadius.circular(8)),
-                  child: Image.network(
-                    '$image',
-                    fit: BoxFit.contain,
-                  ),
-                ),
+                productCard(context),
                 const SizedBox(
                   width: 15,
                 ),
@@ -92,5 +82,19 @@ class PayoutCard extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Container productCard(BuildContext context) {
+    return Container(
+                height: MediaQuery.of(context).size.height / 12,
+                width: MediaQuery.of(context).size.width/8,
+                decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(8)),
+                child: Image.network(
+                  '$image',
+                  fit: BoxFit.contain,
+                ),
+              );
   }
 }
