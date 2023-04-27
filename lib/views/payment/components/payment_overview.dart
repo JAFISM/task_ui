@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import '../../../widgets/amount_card.dart';
 
-
 class PaymentOverview extends StatelessWidget {
   const PaymentOverview({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    //String? _selectedValue;
     return paymentOverview(context);
   }
 }
+
 Container paymentOverview(BuildContext context) {
   return Container(
     // color: Colors.red,
@@ -29,11 +30,11 @@ Container paymentOverview(BuildContext context) {
             ),
             Spacer(),
             Text("Life time"),
-            Icon(
-              Icons.arrow_drop_down_rounded,
-              size: 30,
-              color: kSubTextColor,
-            )
+            // Icon(
+            //   Icons.arrow_drop_down_rounded,
+            //   size: 30,
+            //   color: kSubTextColor,
+            // )
           ],
         ),
         Row(
