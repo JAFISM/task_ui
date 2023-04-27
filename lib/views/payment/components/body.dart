@@ -71,8 +71,12 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
         Container(
             //color: Colors.green,
             child: ListView.builder(
-          itemCount: 10,
-          itemBuilder: (_, index) => PayoutCard(),
+              itemCount: 10,
+                 itemBuilder: (_, index) => PayoutCard(
+                     amount:'899',
+                    image: "https://assets.ajio.com/medias/sys_master/root/20221109/SI6r/636b8e9af997ddfdbd663ee4/-473Wx593H-461119105-blue-MODEL.jpg",
+                   orderId: "9865966", paymentDone: true,
+          ),
         )),
         Container(
           color: Colors.yellowAccent,

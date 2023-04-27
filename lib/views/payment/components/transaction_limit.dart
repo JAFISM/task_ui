@@ -43,7 +43,9 @@ Container transactionLimit(BuildContext context) {
             style: subheadingStyle,
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+
+            },
             child: const Text("Increase limit",
                 style: TextStyle(fontFamily: "Poppins")),
           ),
