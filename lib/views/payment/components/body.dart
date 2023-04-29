@@ -130,7 +130,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                     ),
                     child: Align(
                       alignment: Alignment.center,
-                      child: Text('Payouts(15)'),
+                      child: Text('Payouts'),
                     ),
                   ),
                 ),

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,26 +28,37 @@ popUpDialog(BuildContext context) {
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Consumer<PaymentProvider>(builder: (context, value, child) =>
-                TextField(
+            Consumer<PaymentProvider>(builder: (context, value, child) {
+              return TextField(
                   controller: _controller,
                   keyboardType: TextInputType.number,
+                  maxLength: 6,
                   style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.attach_money_outlined,),
+                    //label: Text("₹"),
+                      labelStyle: TextStyle(fontSize: 28 ),
                       enabledBorder:
                       OutlineInputBorder(
                           borderSide:
                           BorderSide(color: Theme.of(context).primaryColor),
                           borderRadius: BorderRadius.circular(8)),
-                      // errorBorder: OutlineInputBorder(
-                      //     borderSide:
-                      //     BorderSide(color: Colors.redAccent),
-                      //     borderRadius: BorderRadius.circular(8)),
+                      errorBorder: OutlineInputBorder(
+                          borderSide:
+                          BorderSide(color: Colors.redAccent),
+                          borderRadius: BorderRadius.circular(8),
+                      ),
                       focusedBorder: OutlineInputBorder(
                           borderSide:
                           BorderSide(color: Theme.of(context).primaryColor),
-                          borderRadius: BorderRadius.circular(8))),
-                ),
+                          borderRadius: BorderRadius.circular(8)),
+                    //errorText: value.sum > 50000 ? "Maximum limit exceeded" : null,
+                  ),
+                );
+            },
+            ),
+            SizedBox(
+              height: 20,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -61,7 +73,7 @@ popUpDialog(BuildContext context) {
                 ElevatedButton(
                   onPressed: () {
                     final double newValue = double.tryParse(_controller.text) ?? 0.0;
-                    Provider.of<PaymentProvider>(context, listen: false).add(newValue);
+                    Provider.of<PaymentProvider>(context, listen: false).increaseLimit(newValue);
                   },
                   child: Text("Ok"),
                   style: ElevatedButton.styleFrom(

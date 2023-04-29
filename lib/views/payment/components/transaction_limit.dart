@@ -30,9 +30,10 @@ Container transactionLimit(BuildContext context) {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+         // Theme(data: Theme.of(context).copyWith(textTheme:TextTheme(bodyLarge:TextStyle() )), child: Text("Transaction Limit")),
           const Text(
             "Transaction Limit",
-            style: headingStyle,
+            style: headingStyle
           ),
           const Text(
             "A free limit up to which you will receive\nthe online payments directly in your bank",
@@ -44,14 +45,15 @@ Container transactionLimit(BuildContext context) {
               return FAProgressBar(
                 backgroundColor: kBoarderColor,
                 size: 8,
-                currentValue: Provider.of<PaymentProvider>(context).sum,
+                currentValue: 36668,
+                maxValue: Provider.of<PaymentProvider>(context, listen: false).limit,
                 progressColor: Colors.blue,
               );
             },
           ),
           Consumer<PaymentProvider>(
             builder: (context, value, child) => Text(
-              "${Provider.of<PaymentProvider>(context, listen: false).sum} left out of ₹50,0000",
+              "36,668  left out of ₹${Provider.of<PaymentProvider>(context, listen: false).limit}",
               style: subheadingStyle,
             ),
           ),

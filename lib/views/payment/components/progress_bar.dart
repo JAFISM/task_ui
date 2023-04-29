@@ -13,7 +13,7 @@ class FAProgressBar extends StatefulWidget {
   FAProgressBar({
     Key? key,
     this.currentValue = 0,
-    this.maxValue = 50000,
+    this.maxValue = 100,
     this.size = 20,
     this.animatedDuration = const Duration(milliseconds: 300),
     this.direction = Axis.horizontal,

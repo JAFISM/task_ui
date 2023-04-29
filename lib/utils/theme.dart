@@ -19,9 +19,9 @@ ThemeData theme() {
 
 TextTheme textTheme() {
   return const TextTheme(
-    bodyLarge: TextStyle(color: kTextColor,fontFamily: "Poppins"),
-    bodyMedium: TextStyle(color:kSubTextColor),
-    bodySmall: TextStyle(color: kSubTextColor)
+    bodyLarge: TextStyle(color: kTextColor,fontFamily: "Poppins",fontWeight: FontWeight.w700),
+    bodyMedium: TextStyle(color:kSubTextColor,fontFamily: "Poppins",fontWeight: FontWeight.w300),
+    bodySmall: TextStyle(color: kSubTextColor,fontFamily: "Poppins")
   );
 }
 AppBarTheme appBarTheme() {

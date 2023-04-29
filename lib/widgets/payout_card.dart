@@ -90,10 +90,13 @@ class PayoutCard extends StatelessWidget {
                 width: MediaQuery.of(context).size.width/8,
                 decoration: BoxDecoration(
                     color: Colors.grey,
-                    borderRadius: BorderRadius.circular(8)),
-                child: Image.network(
-                  '$image',
-                  fit: BoxFit.contain,
+                    borderRadius: BorderRadius.circular(5),
+                  image: DecorationImage(
+                    image:NetworkImage(
+                      '$image',
+                    ),
+                    fit: BoxFit.fill
+                  )
                 ),
               );
   }
