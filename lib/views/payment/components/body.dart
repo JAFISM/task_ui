@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:task_ui/utils/constants.dart';
 import 'package:task_ui/views/payment/components/paymentMethod.dart';
 import 'package:task_ui/views/payment/components/payment_overview.dart';
 import 'package:task_ui/views/payment/components/transaction_limit.dart';
+import 'package:task_ui/views/payment/controller/add_item_controller.dart';
 
 import '../../../widgets/payout_card.dart';
-
-
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -23,7 +23,6 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
     Tab(text: 'refunds'),
   ];
 
-
   @override
   void initState() {
     super.initState();
@@ -38,19 +37,19 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-        //color: Colors.red,
-        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
-        child: Column(
-          children: [
-            transactionLimit(context),
-            paymentMethod(context),
-            paymentOverview(context),
-            buildDefaultTabController(context),
-            tabBarViews()
-          ],
-        ),
-      );
+    return Container(
+      //color: Colors.red,
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
+      child: Column(
+        children: [
+          transactionLimit(context),
+          paymentMethod(context),
+          paymentOverview(context),
+          buildDefaultTabController(context),
+          tabBarViews()
+        ],
+      ),
+    );
   }
 
   Expanded tabBarViews() {
@@ -66,15 +65,25 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
           ),
         ),
         Container(
-            //color: Colors.green,
-            child: ListView.builder(
-              itemCount: 10,
-                 itemBuilder: (_, index) => PayoutCard(
-                     amount:'899',
-                    image: "https://assets.ajio.com/medias/sys_master/root/20221109/SI6r/636b8e9af997ddfdbd663ee4/-473Wx593H-461119105-blue-MODEL.jpg",
-                   orderId: "9865966", paymentDone: true,
-          ),
-        )),
+            margin: const EdgeInsets.symmetric(),
+            child: Consumer<AddItemProvider>(
+              builder: (context, provider, child) {
+                return ListView.builder(
+                  itemCount: provider.payouts.length,
+                  itemBuilder: (_, index) {
+                    print(
+                        " pay test${Provider.of<AddItemProvider>(context, listen: false).payment.isPaymentDone}");
+                    return PayoutCard(
+                      amount: provider.payouts[index].amount,
+                      orderId: provider.payouts[index].orderId,
+                      paymentDone: Provider.of<AddItemProvider>(context)
+                          .payouts[index]
+                          .isPaymentDone,
+                    );
+                  },
+                );
+              },
+            )),
         Container(
           color: Colors.yellowAccent,
           child: Center(
@@ -96,8 +105,8 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
             style: headingStyle,
           ),
           TabBar(
-            //isScrollable: false,
-            indicatorSize: TabBarIndicatorSize.label,
+              //isScrollable: false,
+              indicatorSize: TabBarIndicatorSize.label,
               onTap: (index) {
                 setState(() {});
               },
@@ -112,7 +121,9 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                   child: Container(
                     height: MediaQuery.of(context).size.height / 25,
                     decoration: BoxDecoration(
-                      color: _tabController.index==0?kPrimaryColor:kBoarderColor,
+                      color: _tabController.index == 0
+                          ? kPrimaryColor
+                          : kBoarderColor,
                       borderRadius: BorderRadius.circular(25),
                     ),
                     child: Align(
@@ -126,7 +137,9 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                     height: MediaQuery.of(context).size.height / 25,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color:_tabController.index==1?kPrimaryColor:kBoarderColor,
+                      color: _tabController.index == 1
+                          ? kPrimaryColor
+                          : kBoarderColor,
                     ),
                     child: Align(
                       alignment: Alignment.center,
@@ -139,7 +152,9 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                     height: MediaQuery.of(context).size.height / 25,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: _tabController.index==2?kPrimaryColor:kBoarderColor,
+                      color: _tabController.index == 2
+                          ? kPrimaryColor
+                          : kBoarderColor,
                     ),
                     child: Align(
                       alignment: Alignment.center,
