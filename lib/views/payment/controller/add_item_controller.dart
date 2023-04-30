@@ -28,11 +28,4 @@ class AddItemProvider extends ChangeNotifier {
     _payouts.add(payout);
     notifyListeners();
   }
-
-  // void updatePayout(int index, String amount, String orderId, bool isPaymentDone) {
-  //   _payouts[index].amount = amount;
-  //   _payouts[index].orderId = orderId;
-  //   _payouts[index].isPaymentDone = isPaymentDone;
-  //   notifyListeners();
-  // }
 }
